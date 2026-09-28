@@ -9,11 +9,17 @@ namespace BoilerController
 {
     internal class Program
     {
+        /// <summary>
+        /// The main entry point of the application.
+        /// </summary>
+        /// <returns></returns>
         static async Task Main()
         {
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Constants.CsvFileName);
+
             var consoleOps = new ConsoleOperations();
             ISerializer<BoilerEvent> serializer = new BoilerEventCsvSerializer();
-            IRepository<BoilerEvent> repository = new BoilerEventRepository(Constants.CsvFileName, serializer);
+            IRepository<BoilerEvent> repository = new BoilerEventRepository(filePath, serializer);
             ILogger<BoilerEvent> logger = new EventLoggerService(repository);
 
             using var app = new ApplicationController(consoleOps, logger);
