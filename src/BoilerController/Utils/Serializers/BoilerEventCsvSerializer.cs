@@ -6,7 +6,11 @@ namespace BoilerController.Utils.Serializers
     {
         public override string Serialize(BoilerEvent eventInfo)
         {
-            return string.Join(',', eventInfo.Timestamp, eventInfo.Title, eventInfo.Description);
+            return string.Join(
+                    ',',
+                    eventInfo.Timestamp,
+                    Escape(eventInfo.Title),
+                    Escape(eventInfo.Description));
         }
 
         public override BoilerEvent Deserialize(string line)
