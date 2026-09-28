@@ -2,14 +2,14 @@
 
 namespace BoilerController.Utils.Serializers
 {
-    internal class BoilerEventCsvSerializer : CsvSerializer<EventInfo>
+    internal class BoilerEventCsvSerializer : CsvSerializer<BoilerEvent>
     {
-        public override string Serialize(EventInfo eventInfo)
+        public override string Serialize(BoilerEvent eventInfo)
         {
             return string.Join(',', eventInfo.Timestamp, eventInfo.Title, eventInfo.Description);
         }
 
-        public override EventInfo Deserialize(string line)
+        public override BoilerEvent Deserialize(string line)
         {
             List<string> parts = ParseCsv(line);
             if (parts.Count != 3)
@@ -21,7 +21,7 @@ namespace BoilerController.Utils.Serializers
             string title = parts[1];
             string description = parts[2];
 
-            return new EventInfo
+            return new BoilerEvent
             {
                 Timestamp = timestamp,
                 Title = title,

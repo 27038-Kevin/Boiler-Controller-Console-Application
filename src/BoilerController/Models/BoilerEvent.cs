@@ -1,6 +1,6 @@
 ﻿namespace BoilerController.Models
 {
-    internal class EventInfo
+    internal class BoilerEvent
     {
         public DateTime Timestamp { get; set; }
 
