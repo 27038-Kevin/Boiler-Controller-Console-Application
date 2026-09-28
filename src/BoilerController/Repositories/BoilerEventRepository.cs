@@ -29,7 +29,9 @@ namespace BoilerController.Repositories
 
         public void Save(BoilerEvent boilerEvent)
         {
-            File.AppendAllText(_filePath, _serializer.Serialize(boilerEvent) + Environment.NewLine);
+            File.AppendAllText(
+                _filePath,
+                _serializer.Serialize(boilerEvent) + Environment.NewLine);
         }
     }
 }
