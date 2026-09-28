@@ -16,5 +16,10 @@ namespace BoilerController.Services
         {
             _repository.Save(boilerEvent);
         }
+
+        public IEnumerable<BoilerEvent> ReadLogs()
+        {
+            return _repository.GetAll();
+        }
     }
 }

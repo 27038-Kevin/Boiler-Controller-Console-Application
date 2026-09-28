@@ -26,7 +26,8 @@ namespace BoilerController.Services
 
         internal static bool SimulateBoilerError()
         {
-            if (Boiler.Instance.SystemStatus != BoilerState.Operational)
+            if (Boiler.Instance.SystemStatus != BoilerState.Operational
+                    && Boiler.Instance.SystemStatus != BoilerState.Ready)
                 return false;
 
             SetBoilerState(BoilerState.Lockout);
