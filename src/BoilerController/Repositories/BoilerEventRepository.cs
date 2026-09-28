@@ -1,4 +1,5 @@
-﻿using BoilerController.Models;
+﻿using System.Threading.Tasks;
+using BoilerController.Models;
 using BoilerController.Utils.Serializers;
 
 namespace BoilerController.Repositories

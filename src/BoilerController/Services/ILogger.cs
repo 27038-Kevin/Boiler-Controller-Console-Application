@@ -2,6 +2,6 @@
 {
     internal interface ILogger<T> where T : class, new()
     {
-        Task Log(T entity);
+        void Log(T entity);
     }
 }

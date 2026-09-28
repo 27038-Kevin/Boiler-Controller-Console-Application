@@ -12,9 +12,9 @@ namespace BoilerController.Services
             _repository = repository;
         }
 
-        public async Task Log(BoilerEvent boilerEvent)
+        public void Log(BoilerEvent boilerEvent)
         {
-            await Task.Run(() => _repository.Save(boilerEvent));
+            _repository.Save(boilerEvent);
         }
     }
 }
